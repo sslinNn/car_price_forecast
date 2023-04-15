@@ -15,7 +15,6 @@ with open('index.html') as file:
     src = file.read()
 soup = BeautifulSoup(src, 'lxml')
 
-#IndexError
 car = soup.find('div', class_='css-1nvf6xk eojktn00').findAll('div', class_='css-13ocj84 e1icyw250')[1]
 
 data_list = []
@@ -28,10 +27,10 @@ for data_elem in car:
         pass
     else:
         data_list.append(data)
-print(data_list)
 
 strg = ' '.join(data_list)
 print(strg)
+
 
 Title = []
 for symbol in strg:
@@ -39,12 +38,15 @@ for symbol in strg:
         Title.append(symbol)
     else:
         break
-
 Title = ''.join(Title)
+
+
 
 strg = strg[len(Title) + 2::]
 year = strg[0:4]
 strg = strg[len(year)::]
+
+
 
 symbol = ''
 model = []
@@ -54,21 +56,18 @@ for symbol in strg:
         break
 model = ''.join(model)
 
-print(Title)
-print(year)
+
 
 if len(model) > 6:
     eC = model[-5::]
     model = model[0:-6:]
     strg = strg[len(eC) + len(model) + 2::]
-    print(model)
-    print(eC)
 else:
     eC = model[1::]
     model = None
     strg = strg[len(eC) + 2::]
-    print(model)
-    print(eC)
+
+
 
 hp = []
 symbol = ''
@@ -76,9 +75,13 @@ for symbol in strg:
     hp.append(symbol)
     if ')' in symbol:
         break
-
 hp = ''.join(hp)[1:4]
 
+
+print(Title)
+print(year)
+print(model)
+print(eC)
 print(hp)
 print(strg)
 
