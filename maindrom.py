@@ -52,11 +52,10 @@ for symbol in strg:
     model.append(symbol)
     if 'л' in symbol:
         break
+model = ''.join(model)
 
 print(Title)
 print(year)
-model = ''.join(model)
-
 
 if len(model) > 6:
     eC = model[-5::]
@@ -71,8 +70,16 @@ else:
     print(model)
     print(eC)
 
+hp = []
+symbol = ''
+for symbol in strg:
+    hp.append(symbol)
+    if ')' in symbol:
+        break
 
+hp = ''.join(hp)[1:4]
 
+print(hp)
 print(strg)
 
 
