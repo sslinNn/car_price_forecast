@@ -15,7 +15,7 @@ with open('index.html') as file:
     src = file.read()
 soup = BeautifulSoup(src, 'lxml')
 
-car = soup.find('div', class_='css-1nvf6xk eojktn00').findAll('div', class_='css-13ocj84 e1icyw250')[1]
+car = soup.find('div', class_='css-1nvf6xk eojktn00').findAll('div', class_='css-13ocj84 e1icyw250')[5]
 
 data_list = []
 for data_elem in car:
@@ -54,13 +54,13 @@ for symbol in strg:
     model.append(symbol)
     if 'л' in symbol:
         break
-model = ''.join(model)
+model = ''.join(model)[:-2:]
 
 
 
 if len(model) > 6:
-    eC = model[-5::]
-    model = model[0:-6:]
+    eC = model[:3:]
+    model = model[0:-4:]
     strg = strg[len(eC) + len(model) + 2::]
 else:
     eC = model[1::]
@@ -76,8 +76,10 @@ for symbol in strg:
     if ')' in symbol:
         break
 
+
 strg = strg[len(hp)+2::]
-hp = ''.join(hp)[1:4]
+hp = ''.join(hp)[3:6]
+
 
 fuel = []
 symbol = ''
@@ -85,7 +87,7 @@ for symbol in strg:
     fuel.append(symbol)
     if ',' in symbol:
         break
-strg = strg[len(fuel)+2::]
+strg = strg[len(fuel)+1::]
 fuel = ''.join(fuel)[:-1:]
 
 trans = []
@@ -97,12 +99,22 @@ for symbol in strg:
 strg = strg[len(trans)+1::]
 trans = ''.join(trans)[:-1:]
 
+drive = []
+symbol = ''
+for symbol in strg:
+    drive.append(symbol)
+    if ',' in symbol:
+        strg = strg[len(drive) + 1::]
+        drive = ''.join(drive)[:-1:]
+        break
+    elif ' ' in symbol:
+        strg = strg[len(drive)::]
+        drive = ''.join(drive)[:-1:]
+        break
 
+if strg == 'новый':
+    odo = 0
+else:
+    odo = strg.replace('тыс. км', '').replace(' ', '')
 
-
-print(f'{Title} {year} {model} {eC} {hp} {fuel} {trans}')
-
-print(strg)
-
-
-
+print(f'{Title} * {year} * {model} * {eC} * {hp} * {fuel} * {trans} * {drive} * {odo} *')
