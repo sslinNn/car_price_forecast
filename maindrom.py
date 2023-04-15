@@ -88,8 +88,19 @@ for symbol in strg:
 strg = strg[len(fuel)+2::]
 fuel = ''.join(fuel)[:-1:]
 
+trans = []
+symbol = ''
+for symbol in strg:
+    trans.append(symbol)
+    if ',' in symbol:
+        break
+strg = strg[len(trans)+1::]
+trans = ''.join(trans)[:-1:]
 
-print(f'{Title} {year} {model} {eC} {hp} {fuel}')
+
+
+
+print(f'{Title} {year} {model} {eC} {hp} {fuel} {trans}')
 
 print(strg)
 
