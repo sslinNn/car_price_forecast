@@ -5,7 +5,7 @@ headers = {
     'user-agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_11_6) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/53.0.2785.143 Safari/537.36'
 }
 
-for i in range(2):
+for i in range(1):
     url = f'https://auto.drom.ru/all/page{i}/'
     response = requests.get(url=url, headers=headers)
 
@@ -19,7 +19,7 @@ for i in range(2):
 # soup = BeautifulSoup(src, 'lxml')
 
 
-    for n in range(20):
+    for n in range(5):
         car = soup.find('div', class_='css-1nvf6xk eojktn00').findAll('div', class_='css-13ocj84 e1icyw250')[n]
 
         data_list = []
@@ -119,7 +119,7 @@ for i in range(2):
         if strg == 'новый':
             odo = 0
         else:
-            odo = strg.replace('тыс. км', '').replace(' ', '')
+            odo = strg.replace('тыс. км', '').replace(' ', '').replace('отсобственника', '')
 
 
 
