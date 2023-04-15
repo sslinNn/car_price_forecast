@@ -75,14 +75,22 @@ for symbol in strg:
     hp.append(symbol)
     if ')' in symbol:
         break
+
+strg = strg[len(hp)+2::]
 hp = ''.join(hp)[1:4]
 
+fuel = []
+symbol = ''
+for symbol in strg:
+    fuel.append(symbol)
+    if ',' in symbol:
+        break
+strg = strg[len(fuel)+2::]
+fuel = ''.join(fuel)[:-1:]
 
-print(Title)
-print(year)
-print(model)
-print(eC)
-print(hp)
+
+print(f'{Title} {year} {model} {eC} {hp} {fuel}')
+
 print(strg)
 
 
