@@ -56,7 +56,24 @@ for symbol in strg:
 print(Title)
 print(year)
 model = ''.join(model)
+
+
 if len(model) > 6:
+    eC = model[-5::]
+    model = model[0:-6:]
+    strg = strg[len(eC) + len(model) + 2::]
+    print(model)
+    print(eC)
+else:
+    eC = model[1::]
+    model = None
+    strg = strg[len(eC) + 2::]
+    print(model)
+    print(eC)
 
 
-print(model, len(model))
+
+print(strg)
+
+
+
