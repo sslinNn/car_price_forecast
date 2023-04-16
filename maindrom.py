@@ -1,5 +1,6 @@
 import requests
 from bs4 import BeautifulSoup
+import pandas as pd
 
 headers = {
     'user-agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_11_6) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/53.0.2785.143 Safari/537.36'
@@ -18,7 +19,24 @@ with open('index.html') as file:
     src = file.read()
 soup = BeautifulSoup(src, 'lxml')
 
-n = 5
+carTitle = []
+carYear = []
+carModel = []
+carEc = []
+carHp = []
+carFuel = []
+carTransm = []
+carDrive = []
+carOdo = []
+carPrice_ = []
+carPriceMin_ = []
+highPrice_ = []
+goodPrice_ = []
+defltPrice_ = []
+removed_ = []
+minPrice_ = []
+
+n = 10
 for n in range(2):
     car = soup.find('div', class_='css-1nvf6xk eojktn00').findAll('div', class_='css-13ocj84 e1icyw250')[n]
 
@@ -195,5 +213,43 @@ for n in range(2):
         carPriceMin = None
         minPrice = 0
 
-    print(f'{Title} * {year} * {model} * {eC} * {hp} * {fuel} * {trans} * {drive} * {odo} * price - {carPrice} * minCarPrice - {carPriceMin} * highPrice - {highPrice} * goodPrice - {goodPrice} * defltPrice - {defltPrice} * removed - {removed} * minPrice - {minPrice}')
+    carTitle.append(Title)
+    carYear.append(year)
+    carModel.append(model)
+    carEc.append(eC)
+    carHp.append(hp)
+    carFuel.append(fuel)
+    carTransm.append(trans)
+    carDrive.append(drive)
+    carOdo.append(odo)
+    carPrice_.append(carPrice)
+    carPriceMin_.append(carPriceMin)
+    highPrice_.append(highPrice)
+    goodPrice_.append(goodPrice)
+    defltPrice_.append(defltPrice)
+    removed_.append(removed)
+    minPrice_.append(minPrice)
 
+
+    # print(f'{Title} * {year} * {model} * {eC} * {hp} * {fuel} * {trans} * {drive} * {odo} * price - {carPrice} * minCarPrice - {carPriceMin} * highPrice - {highPrice} * goodPrice - {goodPrice} * defltPrice - {defltPrice} * removed - {removed} * minPrice - {minPrice}')
+
+df = pd.DataFrame({
+    'CarName': carTitle,
+    'CarYear': carYear,
+    'CarModel': carModel,
+    'EngineCapacity(l)': carEc,
+    'HorsePower': carHp,
+    'CarFuel': carFuel,
+    'CarTransmission': carTransm,
+    'CarDrive': carDrive,
+    'CarOdo(KM)': carOdo,
+    'carPrice': carPrice,
+    'carPriceMin': carPriceMin_,
+    'highPrice': highPrice_,
+    'goodPrice': goodPrice_,
+    'defltPrice': defltPrice_,
+    'removed': removed_,
+    'minPrice': minPrice_,
+})
+
+print(df)
