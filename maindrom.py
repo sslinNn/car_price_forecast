@@ -33,7 +33,7 @@ minPrice_ = []
 i = 0
 n = 0
 
-for i in range(2):
+for i in range(10):
     url = f'https://auto.drom.ru/all/page{i}/'
     response = requests.get(url=url, headers=headers)
     soup = BeautifulSoup(response.text, 'lxml')
