@@ -2,6 +2,13 @@ import requests
 from bs4 import BeautifulSoup
 import pandas as pd
 
+# Сброс ограничений на количество выводимых рядов
+pd.set_option('display.max_rows', None)
+# Сброс ограничений на число столбцов
+pd.set_option('display.max_columns', None)
+# Сброс ограничений на количество символов в записи
+pd.set_option('display.max_colwidth', None)
+
 headers = {
     'user-agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_11_6) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/53.0.2785.143 Safari/537.36'
 }
@@ -36,8 +43,8 @@ defltPrice_ = []
 removed_ = []
 minPrice_ = []
 
-n = 10
-for n in range(2):
+n = 0
+for n in range(20):
     car = soup.find('div', class_='css-1nvf6xk eojktn00').findAll('div', class_='css-13ocj84 e1icyw250')[n]
 
     data_list = []
@@ -243,7 +250,7 @@ df = pd.DataFrame({
     'CarTransmission': carTransm,
     'CarDrive': carDrive,
     'CarOdo(KM)': carOdo,
-    'carPrice': carPrice,
+    'carPrice': carPrice_,
     'carPriceMin': carPriceMin_,
     'highPrice': highPrice_,
     'goodPrice': goodPrice_,
