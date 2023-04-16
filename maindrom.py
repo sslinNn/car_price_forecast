@@ -147,9 +147,8 @@ for i in range(2):
         else:
             odo = strg.replace('тыс. км', '').replace(' ', '').replace('отсобственника', '')
 
-
-
         """------------------------------------------------------------------------------------------------------"""
+
         car = soup.find('div', class_='css-1nvf6xk eojktn00').findAll('div', class_='css-1dkhqyq e1f2m3x80')[n]
 
         priceList = []
