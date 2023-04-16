@@ -33,8 +33,8 @@ minPrice_ = []
 i = 0
 n = 0
 
-for i in range(10):
-    url = f'https://auto.drom.ru/all/page{i}/'
+for i in range(100):
+    url = f'https://auto.drom.ru/region22/all/page{i}/'
     response = requests.get(url=url, headers=headers)
     soup = BeautifulSoup(response.text, 'lxml')
 
@@ -46,7 +46,7 @@ for i in range(10):
 # soup = BeautifulSoup(src, 'lxml')
 
     for n in range(20):
-        time.sleep(1)
+        # time.sleep(1)
         car = soup.find('div', class_='css-1nvf6xk eojktn00').findAll('div', class_='css-13ocj84 e1icyw250')[n]
         data_list = []
         for data_elem in car:
@@ -262,6 +262,6 @@ for i in range(10):
 
     print(f'Страница - {i}')
 
-df.to_csv('carsDF.csv', encoding='utf-8')
+df.to_csv('carsDFreg22.csv', encoding='utf-8')
 
 print(df)
