@@ -34,7 +34,7 @@ i = 0
 n = 0
 
 for i in range(100):
-    url = f'https://auto.drom.ru/region22/all/page{i}/'
+    url = f'https://auto.drom.ru/region23/all/page{i}/'
     response = requests.get(url=url, headers=headers)
     soup = BeautifulSoup(response.text, 'lxml')
 
@@ -262,6 +262,6 @@ for i in range(100):
 
     print(f'Страница - {i}')
 
-df.to_csv('carsDFreg22.csv', encoding='utf-8')
+df.to_csv('carsDFreg23.csv', encoding='utf-8')
 
 print(df)
