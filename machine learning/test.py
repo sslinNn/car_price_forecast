@@ -36,7 +36,13 @@ df['Subaru'] = 1
 df['Outback'] = 1
 
 
-
+a = 'Audi'
+b = 'BMW'
+for i in df:
+    if i == a:
+        df[f'{i}'] = 1
+    elif i == b:
+        df[f'{i}'] = 1
 result = model.predict(df)
 print('Price - ', result[0].round())
 
