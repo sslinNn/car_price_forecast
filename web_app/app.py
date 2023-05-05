@@ -1,6 +1,7 @@
 from flask import Flask, render_template, url_for, request, jsonify, json
 # from flask_sqlalchemy import SQLAlchemy
 # import json
+from machine_learning import main_ml_script as mms
 
 
 app = Flask(__name__)
@@ -20,8 +21,8 @@ def index():
         EngineCapacity = request.form['EngineCapacity']
         HorsePower = request.form['HorsePower']
         CarOdo = request.form['CarOdo']
-
-        return render_template('result.html', CarYear=CarYear, EngineCapacity=EngineCapacity, HorsePower=HorsePower, CarOdo=CarOdo )
+        result = mms.ml(car_year=CarYear, car_odo=CarOdo, engine_capacity=EngineCapacity, horse_power=HorsePower)
+        return render_template('result.html', CarYear=CarYear, EngineCapacity=EngineCapacity, HorsePower=HorsePower, CarOdo=CarOdo, result=result )
     else:
         return render_template('index.html')
 

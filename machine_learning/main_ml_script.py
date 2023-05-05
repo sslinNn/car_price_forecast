@@ -3,7 +3,7 @@ import pickle
 # import numpy as np
 
 """ Загружаем данные и обученную модель """
-df = pd.read_csv('datasets/ready_data.csv')
+df = pd.read_csv(r'C:\Users\slinm\Desktop\pythonProject2\machine_learning\datasets\ready_data.csv')
 data = df.drop(df.columns[df.columns.str.contains('Unnamed', case=False)], axis=1)
 data = data.drop(['CarModel'], axis=1)
 
@@ -19,7 +19,7 @@ for i in df:
     for j in df[f'{i}']:
         df[f'{i}'] = 0
 
-with open('model.pkl', 'rb') as f:
+with open(r'C:\Users\slinm\Desktop\pythonProject2\machine_learning\model.pkl', 'rb') as f:
     model = pickle.load(f)
 
 
@@ -43,6 +43,3 @@ def ml(car_year=int, engine_capacity=float, horse_power=int, car_odo=int):
 
     result = model.predict(df)
     return result[0].round()
-
-res = ml(car_year=2000, car_odo=243, engine_capacity=1.6, horse_power=160)
-print(res)
