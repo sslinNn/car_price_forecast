@@ -1,16 +1,8 @@
 from flask import Flask, render_template, url_for, request, jsonify, json
-# from flask_sqlalchemy import SQLAlchemy
-# import json
 from machine_learning import main_ml_script as mms
 
 
 app = Flask(__name__)
-
-
-# app.config['SQLALCHEMY DATABASE_URL'] = 'sqlite///blog.db'
-# db = SQLAlchemy(app)
-# class Article(db.Model):
-#     pass
 
 
 @app.route('/', methods=['GET', 'POST'])
