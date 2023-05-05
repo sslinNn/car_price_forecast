@@ -1,0 +1,23 @@
+{% extends 'base.html' %}
+
+
+{% block title %}
+Enter your data
+{% endblock %}
+
+
+{% block body %}
+<div class="case">
+    <h1>What's up</h1> <br>
+
+    <form method="post">
+        <label for="CarYear">Enter car year:</label> <input type="name" name="CarYear" id="CarYear">
+        <label for="EngineCapacity">Enter Engine Capacity:</label> <input type="name" name="EngineCapacity" id="EngineCapacity">
+        <label for="HorsePower">Enter Horse Power:</label> <input type="name" name="HorsePower" id="HorsePower">
+        <label for="CarOdo">Enter Car Odo:</label> <input type="name" name="CarOdo" id="CarOdo">
+
+
+        <button type="submit">Submit</button>
+    </form>
+</div>
+{% endblock %}
