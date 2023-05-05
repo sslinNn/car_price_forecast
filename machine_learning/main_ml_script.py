@@ -19,5 +19,30 @@ for i in df:
     for j in df[f'{i}']:
         df[f'{i}'] = 0
 
-"""Сохраняем пустой датасет"""
-df.to_csv('datasets/df_for_predict.csv', index=False)
+with open('model.pkl', 'rb') as f:
+    model = pickle.load(f)
+
+
+def ml(car_year=int, engine_capacity=float, horse_power=int, car_odo=int):
+    """ Ввод новых параметров для предикта """
+    df['CarYear'] = car_year
+    df['EngineCapacity(l)'] = engine_capacity
+    df['HorsePower'] = horse_power
+    df['CarOdo(KM)'] = car_odo
+    df['бензин'] = 1
+    df['автомат'] = 1
+    df['передний'] = 1
+
+    a = 'Lexus'
+    b = 'LX570'
+    for i in df:
+        if i == a:
+            df[f'{i}'] = 1
+        elif i == b:
+            df[f'{i}'] = 1
+
+    result = model.predict(df)
+    return result[0].round()
+
+res = ml(car_year=2000, car_odo=243, engine_capacity=1.6, horse_power=160)
+print(res)
