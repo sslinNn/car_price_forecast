@@ -14,31 +14,41 @@ dff = pd.DataFrame(data_test).drop(['carPrice', 'carPriceMin'], axis=1)
 df = dff
 
 
-"""Очищаем DF от значений для последующего ввода новых"""
-for i in df:
-    for j in df[f'{i}']:
-        df[f'{i}'] = 0
 
 with open(r'C:\Users\slinm\Desktop\pythonProject2\machine_learning\model.pkl', 'rb') as f:
     model = pickle.load(f)
 
 
-def ml(car_year=int, engine_capacity=float, horse_power=int, car_odo=int):
+def ml(car_year=int, engine_capacity=float, horse_power=int, car_odo=int, car_trans=str, fuel_type=str, car_drive=str, car_mark=str, car_model=str):
+    """Очищаем DF от значений для последующего ввода новых"""
+    for i in df:
+        for j in df[f'{i}']:
+            df[f'{i}'] = 0
+
     """ Ввод новых параметров для предикта """
     df['CarYear'] = car_year
     df['EngineCapacity(l)'] = engine_capacity
     df['HorsePower'] = horse_power
     df['CarOdo(KM)'] = car_odo
-    df['бензин'] = 1
-    df['автомат'] = 1
-    df['передний'] = 1
 
-    a = 'Lexus'
-    b = 'LX570'
+    for trns in df:
+        if car_trans == trns:
+            df[f'{trns}'] = 1
+
+    for futype in df:
+        if fuel_type == futype:
+            df[f'{futype}'] = 1
+
+    for drv in df:
+        if car_drive == drv:
+            df[f'{drv}'] = 1
+
+    mark_ = car_mark
+    model_ = car_model
     for i in df:
-        if i == a:
+        if i == mark_:
             df[f'{i}'] = 1
-        elif i == b:
+        elif i == model_:
             df[f'{i}'] = 1
 
     result = model.predict(df)

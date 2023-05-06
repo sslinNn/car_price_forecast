@@ -13,8 +13,36 @@ def index():
         EngineCapacity = request.form['EngineCapacity']
         HorsePower = request.form['HorsePower']
         CarOdo = request.form['CarOdo']
-        result = mms.ml(car_year=CarYear, car_odo=CarOdo, engine_capacity=EngineCapacity, horse_power=HorsePower)
-        return render_template('result.html', CarYear=CarYear, EngineCapacity=EngineCapacity, HorsePower=HorsePower, CarOdo=CarOdo, result=result )
+        CarMark = request.form['CarMark']
+        CarModel = request.form['CarModel']
+
+        CarTrans = request.form['CarTrans']
+        FuelType = request.form['FuelType']
+        CarDrive = request.form['CarDrive']
+
+        result = mms.ml(car_year=CarYear,
+                        car_odo=CarOdo,
+                        engine_capacity=EngineCapacity,
+                        horse_power=HorsePower,
+                        car_trans=CarTrans,
+                        fuel_type=FuelType,
+                        car_drive=CarDrive,
+                        car_mark=CarMark,
+                        car_model=CarModel
+                        )
+
+        return render_template('result.html',
+                               CarYear=CarYear,
+                               EngineCapacity=EngineCapacity,
+                               HorsePower=HorsePower,
+                               CarOdo=CarOdo,
+                               CarTrans=CarTrans,
+                               FuelType=FuelType,
+                               CarDrive=CarDrive,
+                               CarMark=CarMark,
+                               CarModel=CarModel,
+                               result=result
+                               )
     else:
         return render_template('index.html')
 
@@ -22,6 +50,7 @@ def index():
 @app.route('/result')
 def result():
     return render_template('result.html')
+
 
 if __name__ == '__main__':
     app.run(debug=True, host='localhost')
