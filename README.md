@@ -10,4 +10,5 @@ Entering the parameters of the car
 
 
 We get the result
+
 ![photo_3_2023-05-06_16-19-59](https://user-images.githubusercontent.com/113080924/236615517-6f775614-08e2-41d9-9883-87d093b7c9fe.jpg)
