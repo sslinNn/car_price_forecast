@@ -10,6 +10,14 @@ Result
 <div class="case">
     <h2>thx</h2> <br>
 
+    {% if CarMark %}
+        <p>Car Mark Type is - {{ CarMark }}.</p>
+    {% endif %}
+
+    {% if CarModel %}
+        <p>Car Model Type is - {{ CarModel }}.</p>
+    {% endif %}
+
     {% if CarYear %}
         <p>Car Year - {{ CarYear }}.</p>
     {% endif %}
@@ -34,23 +42,12 @@ Result
         <p>Car Fuel Type is - {{ FuelType }}.</p>
     {% endif %}
 
-    {% if CarMark %}
-        <p>Car Mark Type is - {{ CarMark }}.</p>
-    {% endif %}
-
-    {% if CarModel %}
-        <p>Car Model Type is - {{ CarModel }}.</p>
-    {% endif %}
-
     {% if CarDrive %}
         <p>Car Drive Type is - {{ CarDrive }}.</p>
     {% endif %}
 
     {% if result %}
-        <p>Result is - {{ result }}.</p>
+        <p>Result is - {{ result }}₽</p>
     {% endif %}
 </div>
-
-
-
 {% endblock %}
