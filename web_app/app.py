@@ -1,4 +1,4 @@
-from flask import Flask, render_template, url_for, request, jsonify, json, redirect
+from flask import Flask, render_template, url_for, request, redirect
 from machine_learning import main_ml_script as mms
 
 

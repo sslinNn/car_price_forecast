@@ -19,7 +19,16 @@ with open(r'C:\Users\slinm\Desktop\pythonProject2\machine_learning\model.pkl', '
     model = pickle.load(f)
 
 
-def ml(car_year=int, engine_capacity=float, horse_power=int, car_odo=int, car_trans=str, fuel_type=str, car_drive=str, car_mark=str, car_model=str):
+def ml(car_year=int,
+       engine_capacity=float,
+       horse_power=int,
+       car_odo=int,
+       car_trans=str,
+       fuel_type=str,
+       car_drive=str,
+       car_mark=str,
+       car_model=str
+       ):
     """Очищаем DF от значений для последующего ввода новых"""
     for i in df:
         for j in df[f'{i}']:
