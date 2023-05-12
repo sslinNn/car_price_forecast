@@ -2,52 +2,65 @@
 
 
 {% block title %}
-Enter your data
+webapp
 {% endblock %}
 
 
 {% block body %}
-<div class="case">
-    <h1>What's up</h1> <br>
-
-    <form method="post">
-        <label for="CarYear">Enter car year:</label> <input type="name" name="CarYear" id="CarYear">
-        <label for="EngineCapacity">Enter Engine Capacity:</label> <input type="name" name="EngineCapacity" id="EngineCapacity">
-        <label for="HorsePower">Enter Horse Power:</label> <input type="name" name="HorsePower" id="HorsePower">
-        <label for="CarOdo">Enter Car Odo:</label> <input type="name" name="CarOdo" id="CarOdo"><br><br>
-        <label for="CarMark">Enter Car Mark:</label> <input type="name" name="CarMark" id="CarMark">
-        <label for="CarModel">Enter Car Model:</label> <input type="name" name="CarModel" id="CarModel">
-        <br>
-        <br>
-        <label for="CarTrans">Choose a Transmission:</label>
-        <select name="CarTrans" id="CarTrans">
-            <option value="">--Please choose an option--</option>
-            <option value="автомат">автомат</option>
-            <option value="вариатор">вариатор</option>
-            <option value="механика">механика</option>
-            <option value="робот">робот</option>
-        </select>
-        <br>
-        <br>
-        <label for="FuelType">Choose a fuel type:</label>
-        <select name="FuelType" id="FuelType">
-            <option value="">--Please choose an option--</option>
-            <option value="бензин">бензин</option>
-            <option value="дизель">дизель</option>
-            <option value="гибрид">гибрид</option>
-        </select>
-        <br>
-        <br>
-        <label for="CarDrive">Choose a drive type:</label>
-        <select name="CarDrive" id="CarDrive">
-            <option value="">--Please choose an option--</option>
-            <option value="4WD">4WD</option>
-            <option value="задний">задний</option>
-            <option value="передний">передний</option>
-        </select>
-        <br>
-
-        <button type="submit">Submit</button>
-    </form>
+<header class="topbar">
+    <!-- <div class="topbar-container"> -->
+        <a class="header-logo" href="#"> 
+            <img src="img/logo1.svg" ></a>
+        <nav class="topbar-navigation">
+            <ol class="topbar-content">
+                <li><a href="#">Вопросы</a></li>
+                <!-- <a href="/path/to/page.html?param1=value1&param2=value2">?</a> -->
+            </ol>
+        </nav>
+    </div>
+</header>
+<div class="page-content">
+    <h2>Рассчитайте предварительную цену автомобиля по его параметрам</h2>
+    <div class="case">
+        <form method="post">
+            <label for="CarMark" style="display: none;">Марка</label> <input type="name" name="CarMark" id="CarMark" placeholder="Марка"><br>
+            <label for="CarModel" style="display: none;">Модель</label> <input type="name" name="CarModel" id="CarModel" placeholder="Модель"><br>
+            <label for="CarYear" style="display: none;">Год</label> <input type="name" name="CarYear" id="CarYear" placeholder="Год"><br>
+            <label for="EngineCapacity" style="display: none;">Объем двигателя</label> <input type="name" name="EngineCapacity" id="EngineCapacity" placeholder="Объем двигателя"><br>
+            <label for="HorsePower" style="display: none;">Мощность</label> <input type="name" name="HorsePower" id="HorsePower" placeholder="Мощность"><br>
+            <label for="CarOdo" style="display: none;">Пробег</label> <input type="name" name="CarOdo" id="CarOdo" placeholder="Пробег"><br>
+            <br>
+            <br>
+            <label for="CarTrans" style="display: none;">КПП</label>
+            <select name="CarTrans" id="CarTrans" placeholder="КПП">
+                <option value="">КПП</option>
+                <option value="автомат">Автомат</option>
+                <option value="вариатор">Вариатор</option>
+                <option value="механика">Механика</option>
+                <option value="робот">Робот</option>
+            </select>
+            <br>
+            <br>
+            <label for="FuelType" style="display: none;">Топливо</label>
+            <select name="FuelType" id="FuelType" placeholder="Топливо">
+                <option value="">Топливо</option>
+                <option value="бензин">Бензин</option>
+                <option value="дизель">Дизель</option>
+                <option value="гибрид">Гибрид</option>
+            </select>
+            <br>
+            <br>
+            <label for="CarDrive" style="display: none;">Привод</label>
+            <select name="CarDrive" id="CarDrive" placeholder="Привод">
+                <option value="">Привод</option>
+                <option value="4WD">4WD</option>
+                <option value="задний">Задний</option>
+                <option value="передний">Передний</option>
+            </select>
+            <br>
+            <br>
+            <button type="submit">Узнать стоимость</button>
+        </form>
+    </div>
 </div>
 {% endblock %}

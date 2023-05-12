@@ -1,0 +1,153 @@
+/* * {
+    margin: 0;
+    padding: 0;
+} */
+
+.topbar, .topbar * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: sans-serif;
+    list-style: none;
+    text-decoration: none;
+}
+
+body {
+    background-color: #E4E4E4;
+    background-image: url(img/audi.png), url(img/linear.png);
+    background-position: right center, top right;
+    background-repeat: no-repeat, no-repeat;
+    background-size: auto, 40% auto;
+    margin: 0;
+    padding: 0;
+    font-family: sans-serif;
+    list-style: none;
+    text-decoration: none;
+}
+
+.topbar {
+    /* min-width: auto;
+    width: 100%; */
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    display: flex;
+    background: white;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 8%;
+    box-shadow: 2px 2px 2px 1px rgba(0, 0, 0, 0.2);
+}
+
+.topbar .header_logo .img {
+    margin: 1px;
+    transition: .5s;
+}
+
+.topbar .header_logo .img:hover {
+    transform: scale(1.2);
+}
+
+.topbar .topbar-navigation .topbar-content>li {
+    position: relative;
+    float: left;
+    /* margin: 0;
+    padding: 0; */
+    
+}
+
+.topbar .topbar-navigation .topbar-content>li a {
+    padding: 15px;
+    color: black;
+    display: block;
+}
+
+.page-content {
+    /* padding-top: 10%; */
+    padding: 5%;
+    /* display: block; */
+    align-items: center;
+}
+
+h2 {
+    font-size: calc(10px + 1vw);
+    margin: 2rem 0;
+    text-align: left;
+}
+
+.case {
+    /* width: 100%;
+    height: 900px;
+    font-family: sans-serif;
+    align-items: center;
+    display: block;
+    font-size: 20px; */
+    width: 50%;
+    font-family: sans-serif;
+    font-size: inherit;
+    padding: 25px;
+    border-radius:10px;
+    box-shadow:0 0 15px 4px rgba(0,0,0,0.06);
+}
+
+form {
+    display: block;
+    /* flex-direction: row-reverse; 
+    justify-content: space-between; 
+    align-items: center;  */
+}
+
+input[type=name] {
+    padding: 10px;
+    margin:10px 0;
+    border:0;
+    border-radius:10px;
+    box-shadow:0 0 15px 4px rgba(0,0,0,0.06);
+    font-family:inherit;
+    font-size: inherit;
+}
+
+input[type=name]:hover {
+    border: 1px solid #aaa;
+}
+
+select {
+    width: 50%;
+    padding:10px;
+    border-radius:10px;
+    box-shadow:0 0 15px 4px rgba(0,0,0,0.06);
+    border:none;
+    font-family:inherit;
+    font-size: inherit;
+}
+
+select:hover {
+    border: 1px solid #aaa;
+}
+
+button {
+    /* appearance:none;
+    -webkit-appearance:none; */
+    padding:10px;
+    border:none;
+    background-color:#fa6c19ea;
+    color:#fff;
+    font-weight:800;
+    border-radius:10px;
+    width:50%;
+}
+
+button:hover {
+    background-color:#fa5103;
+}
+
+/* .info {
+    padding: 5%;
+}
+
+h1 {
+    font-size: calc(12px + 2vw);
+    margin: 2rem 0;
+    text-align: center;
+} */
