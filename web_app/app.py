@@ -1,29 +1,39 @@
 from flask import Flask, render_template, url_for, request, redirect
 from machine_learning import main_ml_script as mms
+from test import Car
 
 
 app = Flask(__name__)
+
 
 
 @app.route('/', methods=['GET', 'POST'])
 @app.route('/home', methods=['POST'])
 def index():
     if request.method == 'POST':
-        CarYear = request.form['CarYear']
-        EngineCapacity = request.form['EngineCapacity']
-        HorsePower = request.form['HorsePower']
-        CarOdo = request.form['CarOdo']
-        CarMark = request.form['CarMark']
-        CarModel = request.form['CarModel']
-        CarTrans = request.form['CarTrans']
-        FuelType = request.form['FuelType']
-        CarDrive = request.form['CarDrive']
+        car = Car(CarYear=request.form['CarYear'],
+                  EngineCapacity=request.form['EngineCapacity'],
+                  HorsePower=request.form['HorsePower'],
+                  CarOdo=request.form['CarOdo'],
+                  CarMark=request.form['CarMark'],
+                  CarModel=request.form['CarModel'],
+                  CarTrans=request.form['CarTrans'],
+                  FuelType=request.form['FuelType'],
+                  CarDrive=request.form['CarDrive']
+                  )
+
+        # CarYear = request.form['CarYear']
+        # EngineCapacity = request.form['EngineCapacity']
+        # HorsePower = request.form['HorsePower']
+        # CarOdo = request.form['CarOdo']
+        # CarMark = request.form['CarMark']
+        # CarModel = request.form['CarModel']
+        # CarTrans = request.form['CarTrans']
+        # FuelType = request.form['FuelType']
+        # CarDrive = request.form['CarDrive']
 
         with open('data.txt', 'w') as f:
-            f.write(f"{CarYear},{EngineCapacity},"
-                    f"{HorsePower},{CarOdo},"
-                    f"{CarMark},{CarModel},"
-                    f"{CarTrans},{FuelType},{CarDrive}")
+            f.write(car.get_indo())
         return redirect(url_for('result'))
     else:
         return render_template('index.html')
