@@ -14,8 +14,8 @@ We get the result
 ![photo_3_2023-05-06_16-19-59](https://user-images.githubusercontent.com/113080924/236615517-6f775614-08e2-41d9-9883-87d093b7c9fe.jpg)
 
 # For install
-'git clone https://github.com/sslinNn/car_price_forecast'
-'pip install pandas'
-'pip install Flask'
-'pip install scikit-learn'
-'pip install pickle5'
+`git clone https://github.com/sslinNn/car_price_forecast`
+`pip install pandas`
+`pip install Flask`
+`pip install scikit-learn`
+`pip install pickle5`
