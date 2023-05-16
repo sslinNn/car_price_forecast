@@ -1,1 +1,0 @@
-CarYear:1998, EngineCapacity:2.5, HorsePower:180, CarOdo:100, CarMark:Toyota, CarModel:Mark 2, CarTrans:автомат, FuelType:бензин, CarDrive:задний
