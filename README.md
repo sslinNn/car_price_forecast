@@ -15,7 +15,11 @@ We get the result
 
 # For install
 `git clone https://github.com/sslinNn/car_price_forecast`
+
 `pip install pandas`
+
 `pip install Flask`
+
 `pip install scikit-learn`
+
 `pip install pickle5`
