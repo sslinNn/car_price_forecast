@@ -1,10 +1,15 @@
-from flask import Flask, render_template, url_for, request, redirect
+from flask import Flask, render_template, url_for, request, redirect, session
+from flask_session import Session
 from machine_learning import main_ml_script as mms
 from class__ import Car
 import pickle
 
 
 app = Flask(__name__)
+app.secret_key = 'ec5rv6tb7ynu8jmio,*&(HNJMK<L'
+app.config['SESSION_TYPE'] = 'filesystem'  # Можно использовать другие типы хранилища сессий
+Session(app)
+
 
 @app.route('/', methods=['GET', 'POST'])
 @app.route('/home', methods=['POST'])
@@ -20,7 +25,7 @@ def index():
                   FuelType=request.form['FuelType'],
                   CarDrive=request.form['CarDrive']
                   )
-        mms.save_object(car, 'data.pkl')
+        session['car'] = car
         return redirect(url_for('result'))
     else:
         return render_template('index.html')
@@ -28,9 +33,10 @@ def index():
 
 @app.route('/result')
 def result():
-    with open('data.pkl', 'rb') as inp:
-        car = pickle.load(inp)
-    return render_template('result.html', info=car.get_info(), res=mms.ml(car))
+    car = session.get('car')
+    info = car.get_info().split(sep=';')
+    res = mms.ml(car=car)
+    return render_template('result.html', info=info, res=res)
 
 
 if __name__ == '__main__':
