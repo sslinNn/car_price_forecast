@@ -1,8 +1,8 @@
 from flask import Flask, render_template, url_for, request, redirect, session
 from flask_session import Session
 from machine_learning import main_ml_script as mms
+from shit import mrk_list
 from class__ import Car
-import pickle
 
 
 app = Flask(__name__)
@@ -28,7 +28,7 @@ def index():
         session['car'] = car
         return redirect(url_for('result'))
     else:
-        return render_template('index.html')
+        return render_template('index.html', mrk_list=mrk_list)
 
 
 @app.route('/result')
@@ -36,7 +36,7 @@ def result():
     car = session.get('car')
     info = car.get_info().split(sep=';')
     res = mms.ml(car=car)
-    return render_template('result.html', info=info, res=res)
+    return render_template('result.html', info=info, res=res, mrk_list=mrk_list)
 
 
 if __name__ == '__main__':

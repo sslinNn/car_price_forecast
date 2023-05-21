@@ -19,6 +19,8 @@ df = dff
 with open(r'C:\Users\slinm\Desktop\pythonProject2\machine_learning\model.pkl', 'rb') as f:
     model = pickle.load(f)
 
+
+
 def ml(car):
     """Очищаем DF от значений для последующего ввода новых"""
     for i in df:
