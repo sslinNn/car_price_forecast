@@ -1,7 +1,7 @@
-from flask import Flask, render_template, url_for, request, redirect, session
+from flask import Flask, render_template, url_for, request, redirect, session, jsonify
 from flask_session import Session
 from machine_learning import main_ml_script as mms
-from shit import mrk_list
+from shit import mrk_list, car_dict
 from class__ import Car
 
 
@@ -19,8 +19,8 @@ def index():
                   EngineCapacity=request.form['EngineCapacity'],
                   HorsePower=request.form['HorsePower'],
                   CarOdo=request.form['CarOdo'],
-                  CarMark=request.form['CarMark'],
-                  CarModel=request.form['CarModel'],
+                  CarMark=request.form['brand'],
+                  CarModel=request.form['model'],
                   CarTrans=request.form['CarTrans'],
                   FuelType=request.form['FuelType'],
                   CarDrive=request.form['CarDrive']
@@ -28,7 +28,14 @@ def index():
         session['car'] = car
         return redirect(url_for('result'))
     else:
-        return render_template('index.html', mrk_list=mrk_list)
+        return render_template('index.html', brands=car_dict.keys())
+
+
+@app.route('/get_models', methods=['POST'])
+def get_models():
+    selected_brand = request.json['brand']
+    available_models = car_dict.get(selected_brand, [])
+    return jsonify({'models': available_models})
 
 
 @app.route('/result')

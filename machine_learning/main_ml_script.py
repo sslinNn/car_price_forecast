@@ -56,6 +56,8 @@ def ml(car):
     result = model.predict(df)
     return result[0].round()
 
+# car = Car(1997, 2.5, 180, 100, 'Toyota', 'Mark II', 'автомат', 'бензин', 'задний')
+# print(ml(car))
 
 def save_object(obj, filename):
     with open(filename, 'wb') as outp:

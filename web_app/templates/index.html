@@ -23,15 +23,18 @@ webapp
     <h2>Рассчитайте предварительную цену автомобиля по его параметрам</h2>
     <div class="case">
         <form method="post">
-            {% if mrk_list %}
-                <select name="CarMark" id="CarMark" placeholder="Марка">
-                {% for i in mrk_list %}
-                        <option value="{{i}}">{{i}}</option>
+        <form>
+            <select name="brand" id="brand" placeholder="Brand">
+                {% for brand in brands %}
+                    <option value="{{ brand }}">{{ brand }}</option>
                 {% endfor %}
-                </select>
-            {% endif %}
+            </select>
+            <br>
+            <br>
 
-            <label for="CarModel" style="display: none;">Модель</label> <input type="name" name="CarModel" id="CarModel" placeholder="Модель"><br>
+
+            <select name="model" id="model" placeholder="Brand"></select>
+            <br>
             <label for="CarYear" style="display: none;">Год</label> <input type="name" name="CarYear" id="CarYear" placeholder="Год"><br>
             <label for="EngineCapacity" style="display: none;">Объем двигателя</label> <input type="name" name="EngineCapacity" id="EngineCapacity" placeholder="Объем двигателя"><br>
             <label for="HorsePower" style="display: none;">Мощность</label> <input type="name" name="HorsePower" id="HorsePower" placeholder="Мощность"><br>
