@@ -11,13 +11,13 @@ class Car:
         self.CarDrive = CarDrive
 
     def get_info(self):
-        info = f"CarMark:{self.CarMark}; " \
-               f"CarModel:{self.CarModel}; " \
-               f"CarYear:{self.CarYear}; " \
-               f"EngineCapacity:{self.EngineCapacity}; " \
-               f"HorsePower:{self.HorsePower}; " \
-               f"CarOdo:{self.CarOdo}; " \
-               f"CarTrans:{self.CarTrans}; " \
-               f"FuelType:{self.FuelType}; " \
-               f"CarDrive:{self.CarDrive}; "
+        info = f"Марка:{self.CarMark}; " \
+               f"Модель:{self.CarModel}; " \
+               f"Год:{self.CarYear}; " \
+               f"Объем двигателя:{self.EngineCapacity}; " \
+               f"Мощность:{self.HorsePower}; " \
+               f"Пробег:{self.CarOdo}; " \
+               f"КПП:{self.CarTrans}; " \
+               f"Топливо:{self.FuelType}; " \
+               f"Привод:{self.CarDrive}; "
         return info

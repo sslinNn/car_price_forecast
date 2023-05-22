@@ -2,12 +2,25 @@
 
 
 {% block title %}
-Приблизительная стоимость
+Car Price
 {% endblock %}
 
 
 {% block body %}
+<header class="topbar">
+    <!-- <div class="topbar-container"> -->
+        <a class="header-logo" href="#">
+            <img src="static/img/logo.svg" ></a>
+        <nav class="topbar-navigation">
+            <ol class="topbar-content">
+                <li><a href="#"></a></li>
+                <!-- <a href="/path/to/page.html?param1=value1&param2=value2">?</a> -->
+            </ol>
+        </nav>
+    </div>
+
 <div class="case">
+    <h2>Выбранные Вами характеристики:</h2>
     {% if info %}
         {% for i in info %}
             <p>{{ i }}</p>
@@ -15,9 +28,7 @@
     {%- endif %}
 
     {% if res %}
-        <p>Result is - {{ res }} ₽</p>
+    <h2>Приблизительная стоимость автомобиля составит: {{ res }} ₽</h2>
     {% endif %}
-
-
 </div>
 {% endblock %}
