@@ -18,17 +18,18 @@ Car Price
             </ol>
         </nav>
     </div>
+</header>
+<div class="page2">
+    <div class="case">
+        <h2>Выбранные Вами характеристики:</h2>
+        {% if info %}
+            {% for i in info %}
+                <p>{{ i }}</p>
+            {% endfor %}
+        {%- endif %}
 
-<div class="case">
-    <h2>Выбранные Вами характеристики:</h2>
-    {% if info %}
-        {% for i in info %}
-            <p>{{ i }}</p>
-        {% endfor %}
-    {%- endif %}
-
-    {% if res %}
-    <h2>Приблизительная стоимость автомобиля составит: {{ res }} ₽</h2>
-    {% endif %}
-</div>
+        {% if res %}
+            <h2>Приблизительная стоимость автомобиля составит: {{ res }} ₽</h2>
+        {% endif %}
+    </div>
 {% endblock %}

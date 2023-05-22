@@ -57,13 +57,13 @@ body {
 }
 
 .page-content {
-    padding: 5%;
+    padding: 5%
     align-items: center;
 }
 
 h1 {
-    font-size: calc(10px + 1vw);
-    margin: 3rem 0;
+    font-size: calc(6px + 1vw);
+    margin: 2.3rem 0;
     text-align: left;
 }
 
@@ -73,9 +73,11 @@ p {
 
 .case {
     width: 50%;
+    height: 15%;
     font-family: sans-serif;
     font-size: inherit;
     padding: 25px;
+    background-color: white;
     border-radius:10px;
     box-shadow:0 0 15px 4px rgba(0,0,0,0.06);
 }
@@ -138,4 +140,5 @@ button {
 button:hover {
     background-color:#fa5103;
 }
+
 
