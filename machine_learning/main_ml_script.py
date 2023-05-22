@@ -1,6 +1,6 @@
 import pandas as pd
 import pickle
-from class__ import Car
+# from class__ import Car
 # import numpy as np
 
 """ Загружаем данные и обученную модель """
