@@ -7,6 +7,29 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link rel="stylesheet" href="{{ url_for('static', filename ='style.css') }}">
     <title>{% block title %}{% endblock %}</title>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script>
+        $(document).ready(function() {
+            $('#brand').change(function() {
+                var selectedBrand = $(this).val();
+
+                $.ajax({
+                    url: '/get_models',
+                    type: 'POST',
+                    contentType: 'application/json',
+                    data: JSON.stringify({brand: selectedBrand}),
+                    success: function(response) {
+                        var modelsSelect = $('#model');
+                        modelsSelect.empty();
+
+                        $.each(response.models, function(index, model) {
+                            modelsSelect.append($('<option>').text(model).val(model));
+                        });
+                    }
+                });
+            });
+        });
+    </script>
 </head>
 <body>
     {% block body %}{% endblock %}
